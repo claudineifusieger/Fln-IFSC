@@ -99,10 +99,10 @@
           </div>                        
         </div>
       </div>
-    </div>
+    </div> 
   </div>
   <div class="card-footer" style="bottom: 0;position: fixed;text-align: center;width: 99%;">
-    <div class="bt-4" style="margin-bottom: 50px;"">
+    <div class="bt-4" style="margin-bottom: 50px;">
       <p class="text-center text-md mt-4 mb-4" style="text-decoration:overline;margin-bottom: 25px;">Responsavel Tecnico Pelo Laudo<b>    {{$data['responsavelLaudo']}}</b></p>
       <p class="text-right mr-4" style="margin-bottom: 50px;"> Florianópolis, <?php echo strftime('%d', strtotime('today')) ." de ". ucwords(strftime('%B', strtotime('today'))) ." de ". strftime('%Y', strtotime('today')); ?></p>
     </div>
