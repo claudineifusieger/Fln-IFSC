@@ -24,20 +24,17 @@
       <table>
         <td width="73%">
           <p><b>Responsavel pelo Patrimônio: </b></p>
-          <hr style="border-top: 1px solid black;">
           <p><b>Nome:    </b> {{$data['name']}}   (Siape: {{$data['matriculaSiape']}}) </p>
           <p><b>Lotação: </b> {{$data['lotacao']}} </p>
           <hr style="border-top: 1px solid black;">
           <p><b>Identificação do Patrimônio: </b></p>
-          <hr style="border-top: 1px solid black;">
           <p><b>Numero do Patrimônio: </b> {{$data['numeroPatrimonio']}} </p>
           <p><b>Tipo de Equipamento:  </b> {{$data['tipoEquipamento']}} </p>
           <p><b>Marca:                </b> {{$data['marca']}} </p>
           <p><b>Modelo:               </b> {{$data['modelo']}} </p>
           <p><b>Local:                </b> {{$data['local']}} </p>
-          <hr style="border-top: 1px solid black;">
-          <p><b>Constatação:    </b></p> 
-          <hr style="border-top: 1px solid black;">                    
+          <hr style="border-top: 1px solid black; ">
+          <p style="margin: 0px; padding-top: 5px;"><b>Constatação:    </b></p>                  
           @if ( $data['funcionamento'] === "01" ) 
             <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" checked=""> Funcionando </p>
           @else
@@ -54,8 +51,7 @@
             <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" > Parcialmente Funcionando </p>
           @endif  
           <hr style="border-top: 1px solid black;">
-          <p><b>Emcaminhamento: </b> </p>
-          <hr style="border-top: 1px solid black;">
+          <p style="margin: 0px;  padding-top: 5px"><b>Emcaminhamento: </b> </p>
           @if ( $data['encaminhamento'] === "01" ) 
             <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" checked=""> Sem Solucao Técnica Local </p>
           @else
