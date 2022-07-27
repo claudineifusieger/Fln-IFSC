@@ -18,81 +18,76 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="fa fa-home nav-icon"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-file-pdf nav-icon"></i>
               <p>
-                Dashboard
+                Docs
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="../../index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>Laudo</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../../index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>Incorporação</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>Outro</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Layout Options
+                Vago
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="../layout/top-nav.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation</p>
+                  <p>ZZZZZZZ</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../layout/collapsed-sidebar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Collapsed Sidebar</p>
+                  <p>AAAAAAA</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-header">EXAMPLES</li>
+          <li class="nav-header">SISTEMAS IFSC</li>
           <li class="nav-item">
             <a href="../calendar.html" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
+                Email
               </p>
             </a>
           </li>
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-                Extras
+                SIG
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -101,7 +96,7 @@
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
-                    Login & Register v1
+                    SIGRH
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
@@ -109,13 +104,13 @@
                   <li class="nav-item">
                     <a href="../examples/login.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Login v1</p>
+                      <p>Bater Ponto</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="../examples/register.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Register v1</p>
+                      <p>Espelho Ponto</p>
                     </a>
                   </li>
                 </ul>
@@ -124,7 +119,7 @@
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
-                    Login & Register v2
+                    DGP
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
@@ -132,13 +127,13 @@
                   <li class="nav-item">
                     <a href="../examples/login-v2.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Login v2</p>
+                      <p>Pessoas</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="../examples/register-v2.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Register v2</p>
+                      <p>Patrimonio</p>
                     </a>
                   </li>
                 </ul>
@@ -146,7 +141,7 @@
               <li class="nav-item">
                 <a href="../examples/blank.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Blank Page</p>
+                  <p>Outros</p>
                 </a>
               </li>
             </ul>
