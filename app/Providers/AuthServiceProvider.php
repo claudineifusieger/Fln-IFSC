@@ -5,6 +5,9 @@ namespace App\Providers;
 use App\Models\Team;
 use App\Policies\TeamPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Models\User;
+use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\Auth;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -26,6 +29,24 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Fortify::authenticateUsing(function ($request) {
+            $validated = Auth::validate([
+                'uid' => $request->username,
+                'password' => $request->password
+            ]);
+
+            return $validated ? Auth::getLastAttempted() : null;
+        });
+
+        Fortify::confirmPasswordsUsing(function (User $user, $password) {
+            return Auth::validate([
+                'uid' => $user->username,
+                'password' => $password,
+            ]);
+        });
+
+
         //
+
     }
 }

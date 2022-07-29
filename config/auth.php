@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'ldap',
         ],
     ],
 
@@ -60,11 +60,18 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+        'ldap' => [
+            'driver' => 'ldap',
+            'model' => LdapRecord\Models\OpenLDAP\User::class,
+            'database' => [
+                'model' => App\Models\User::class,
+                'sync_passwords' => 'password',             //false,
+                'sync_attributes' => [
+                    'name' => 'cn',
+                    'username' => 'uid',
+                ],
+            ],
         ],
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -85,7 +92,7 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
-
+    /*
     'passwords' => [
         'users' => [
             'provider' => 'users',
@@ -94,7 +101,7 @@ return [
             'throttle' => 60,
         ],
     ],
-
+    */
     /*
     |--------------------------------------------------------------------------
     | Password Confirmation Timeout

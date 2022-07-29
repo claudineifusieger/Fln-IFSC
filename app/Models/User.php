@@ -10,8 +10,10 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use LdapRecord\Laravel\Auth\LdapAuthenticatable;
+use LdapRecord\Laravel\Auth\AuthenticatesWithLdap;
 
-class User extends Authenticatable
+class User extends Authenticatable implements LdapAuthenticatable
 {
     use HasApiTokens;
     use HasFactory;
@@ -19,6 +21,7 @@ class User extends Authenticatable
     use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use AuthenticatesWithLdap;
 
     /**
      * The attributes that are mass assignable.
@@ -26,7 +29,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'username', 'password',
     ];
 
     /**
