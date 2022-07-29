@@ -23,3 +23,13 @@ Route::post('/createPDF', [LaudoController::class, 'createPDF'])->name('createPD
 
 Route::get('/6', function () {return view('parecer.formresp');})->name('parecer.formresp');
 Route::get('/7', function () {return view('parecer.formresp2');})->name('parecer.formresp2');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
