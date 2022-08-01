@@ -16,9 +16,9 @@
       <img src="{{asset('AdminLTE/dist/img/cabecalho.jpg')}}" width="100%"> 
     </div>
     <div>      
-      <h2 align="center"> <img src="{{asset('AdminLTE/dist/img/pc.png')}}" style="vertical-align: bottom;" width="6%"> Coordenação de Suporte Informática.</h2>
+      <h2 align="center"> Coordenação de Suporte Informática.</h2>
     </div>
-    <div style="line-height:0.6em;font-size: 12px;">
+    <div style="line-height:1em;font-size: 12px;">
       <h2> <img src="{{asset('AdminLTE/dist/img/laudo.png')}}" width="3%"> Laudo Técnico</h2>
       <hr style="border-top: 1px solid black;">
       <table>
@@ -80,13 +80,19 @@
         </td>
         <td width="26%"> 
           <div>
-            <img src="{{asset('AdminLTE/dist/img/pc.png')}}" width="85%" style="border: 3px solid black;margin: 3px;">
-            <img src="{{asset('AdminLTE/dist/img/pc.png')}}" width="85%" style="border: 3px solid black;margin: 3px;">
-            <img src="{{asset('AdminLTE/dist/img/pc.png')}}" width="85%" style="border: 3px solid black;margin: 3px;">
+            @isset ( $data['pic1'] ) 
+            <img src="{{url("storage/{$data['pic1']}")}}" width="85%" style="border: 3px solid black;margin: 3px;">
+            @endisset
+            @isset ( $data['pic2'] ) 
+            <img src="{{url("storage/{$data['pic2']}")}}" width="85%" style="border: 3px solid black;margin: 3px;">
+            @endisset
+            @isset ( $data['pic3'] ) 
+            <img src="{{url("storage/{$data['pic3']}")}}" width="85%" style="border: 3px solid black;margin: 3px;">
+            @endisset
           </div>
         </td>
       </table>  
-      <p style="line-height:1.5em;font-size: 12px;"><b>Obs:</b> {{$data['obs']}} </p>
+      <p style="line-height:1.5em;font-size: 12px;"><b>Obs:</b> {{ $data['obs'] }} </p>
     </div>
     <div style="bottom: 0;position: absolute; text-align: center;width: 99%;line-height:0.8em;">
       <div>

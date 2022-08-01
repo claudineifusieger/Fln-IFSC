@@ -65,7 +65,7 @@ return [
             'model' => LdapRecord\Models\OpenLDAP\User::class,
             'database' => [
                 'model' => App\Models\User::class,
-                'sync_passwords' => 'password',             //false,
+                'sync_passwords' => false,   //'password',            
                 'sync_attributes' => [
                     'name' => 'cn',
                     'username' => 'uid',

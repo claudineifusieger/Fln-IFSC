@@ -11,9 +11,9 @@ Route::get('/2', function () {return view('parecer.form');})->name('form');
 Route::get('/3', function () {return view('test3');})->name('test3');
 Route::get('/33', function () {return view('test33');})->name('test33');
 Route::get('/4', function () {return view('blank');})->name('blank');
-Route::get('/adm', function () {return view('adm');})->name('adm');
-Route::get('/adm1', function () {return view('adm1');})->name('adm1');
-Route::get('/adm11', function () {return view('adm11');})->name('adm11');
+Route::get('/adm', function () {return view('adm');})->name('adm')->middleware('auth');
+Route::get('/adm1', function () {return view('adm1');})->name('adm1')->middleware('auth');
+Route::get('/adm11', function () {return view('adm11');})->name('adm11')->middleware('auth');
 
 //Route::resource('laudo', LaudoController::class);
 
@@ -29,7 +29,5 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', function () { return view('dashboard');})->name('dashboard');
 });

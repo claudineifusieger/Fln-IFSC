@@ -76,8 +76,8 @@
           </li>
           <li class="nav-header">SISTEMAS IFSC</li>
           <li class="nav-item">
-            <a href="../calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+            <a href="../calendar.html" class="nav-link">  
+              <i class="nav-icon fas fa-envelope"></i>
               <p>
                 Email
               </p>
