@@ -20,6 +20,7 @@ Route::get('/adm11', function () {return view('adm11');})->name('adm11')->middle
 Route::post('/laudo', [LaudoController::class, 'laudo'])->name('laudo');
 Route::get('/index', [LaudoController::class, 'index'])->name('index');
 Route::post('/createPDF', [LaudoController::class, 'createPDF'])->name('createPDF');
+Route::get('/timbrado', [LaudoController::class, 'timbrado'])->name('timbrado');
 
 Route::get('/6', function () {return view('parecer.formresp');})->name('parecer.formresp');
 Route::get('/7', function () {return view('parecer.formresp2');})->name('parecer.formresp2');

@@ -8,6 +8,16 @@ use PDF;
 
 class LaudoController extends Controller
 {
+
+    public function timbrado(Request $request)
+    {        
+        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');   // ajusta a data para padrao brasileiro
+        date_default_timezone_set('America/Sao_Paulo');                           // seta o time zone 
+
+        view()->share('timbrado'); 
+        $pdf = PDF::loadView('timbrado')->setOptions(['defaultFont' => 'sans-serif', 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        return $pdf->stream('nome-do-arquivo-pdf.pdf');
+    }
     public function laudo(Request $request)
     {
         $data = $request->all();
