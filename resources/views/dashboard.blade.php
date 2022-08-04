@@ -1,6 +1,6 @@
 @extends('layouts.adminlte.index') 
 
-@section('title','CTIC')
+@section('title','')
 
 @section('page','')
 
@@ -26,7 +26,7 @@
               </div>
             </div>
             <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-              <h3><i class="fas fa-users"></i> Servidores </h3>
+              <h3><i class="fas fa-users"></i> - Servidores </h3>
               <br>
               <div class="text-muted">
                 <p class="text-sm"> <b>Luciano </b>(Coordenador) </p>
@@ -38,7 +38,7 @@
                 <p class="text-sm"> <b>Dani</b> (Estagiario) </p>
               </div>
 
-              <h5 class="mt-5 text-muted">Contato</h5>
+              <h3 class="mt-5"><i class="fas fa-phone"></i> - Contato</h3>
               <ul class="list-unstyled">
                 <li>
                   <a class="btn-link text-secondary"></i>Instituto Federal de Santa Catarina – Câmpus Florianópolis</a>

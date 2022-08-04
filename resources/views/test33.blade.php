@@ -101,8 +101,8 @@
       </div>
       <div style="line-height:0.4em; margin-bottom: -30px;font-size: 8px;" >
         <p>Instituto Federal de Santa Catarina – Câmpus Florianópolis</p>
-        <p>Rua: 14 de julho, 150 | Coqueiros | Florianópolis /SC | CEP: 88.075-010</p>
-        <p>Fone: (48) 3877-9000 | www.ifsc.edu.br | CNPJ 11.402.887/0001-60</p>
+        <p>Av. Mauro Ramos, 950 | Centro | Florianópolis /SC | CEP: 88.020-300</p>
+        <p>Fone: (48) 3211-6000 | www.ifsc.edu.br | CNPJ 11.402.887/0002-41</p>
       </div>
     </div>
   </div>
