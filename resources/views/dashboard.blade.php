@@ -1,15 +1,66 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.adminlte.index') 
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
+@section('title','CTIC')
+
+@section('page','')
+
+
+
+@section('content')
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Coordenação de Suporte de Informática</h3>
         </div>
-    </div>
-</x-app-layout>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+              <div class="row">
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <img src="{{asset('AdminLTE/dist/img/informatica.png')}}" width="90%" style="border: 3px solid black;margin: 3px;">
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+              <h3><i class="fas fa-users"></i> Servidores </h3>
+              <br>
+              <div class="text-muted">
+                <p class="text-sm"> <b>Luciano </b>(Coordenador) </p>
+                <p class="text-sm"> <b>Claudinei</b>  </p>
+                <p class="text-sm"> <b>Adriano</b>  </p>
+                <p class="text-sm"> <b>Paulo</b>  </p>
+                <p class="text-sm"> <b>Ederson</b>  </p>
+                <p class="text-sm"> <b>João</b> (Estagiario) </p>
+                <p class="text-sm"> <b>Dani</b> (Estagiario) </p>
+              </div>
+
+              <h5 class="mt-5 text-muted">Contato</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="btn-link text-secondary"></i>Instituto Federal de Santa Catarina – Câmpus Florianópolis</a>
+                </li>
+                <li>
+                  <a class="btn-link text-secondary">Av. Mauro Ramos 950 - Centro - Florianópolis /SC </a>
+                </li>
+                <li>
+                  <a class="btn-link text-secondary">CEP: 88.020-300</a>
+                </li>
+                <li>
+                  <a class="btn-link text-secondary">suporte.ti.fln@ifsc.edu.br</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+
+    </section>
+
+
+
+  @endsection('content')
