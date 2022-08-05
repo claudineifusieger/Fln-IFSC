@@ -33,7 +33,7 @@
                                 </span>
                                 @csrf
                                 <div class="wrap-input100 validate-input" data-validate = "User is required">
-                                    <input class="input100" type="text" id="username" type="username" name="username" :value="old('username')" placeholder="User name" required autofocus />
+                                    <input class="input100" type="text" id="username" type="username" name="username" :value="old('username')" placeholder="User name" required />
                                     <span class="focus-input100"></span>
                                     <span class="symbol-input100">
                                     </span>

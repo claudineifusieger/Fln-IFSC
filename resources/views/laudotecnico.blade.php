@@ -11,7 +11,7 @@
     <!-- Main content -->
     <section class="content">
 
-      <form action="{{route('createPDF')}}" method="post" enctype="multipart/form-data">
+      <form action="{{route('createPDF_laudotecnico')}}" method="post" enctype="multipart/form-data">
         @csrf
         <!-- Default box -->
         <div class="card">

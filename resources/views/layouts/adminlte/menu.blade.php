@@ -17,7 +17,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('dashboard')}}" class="nav-link">
               <i class="fa fa-home nav-icon"></i>
               <p>Dashboard</p>
             </a>
@@ -32,19 +32,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <a href="{{route('laudotecnico')}}" class="nav-link">
                   <i class="nav-icon fas fa-copy"></i>
-                  <p>Laudo</p>
+                  <p>Laudo Técnico</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
+                <a href="{{route('dashboard')}}" class="nav-link">
                   <i class="nav-icon fas fa-copy"></i>
                   <p>Incorporação</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
+                <a href="{{route('timbrado')}}" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>Resp por Laboratório</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('dashboard')}}" class="nav-link">
                   <i class="nav-icon fas fa-copy"></i>
                   <p>Outro</p>
                 </a>
@@ -61,13 +67,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../layout/top-nav.html" class="nav-link">
+                <a href="{{route('dashboard')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>ZZZZZZZ</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../layout/collapsed-sidebar.html" class="nav-link">
+                <a href="{{route('dashboard')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>AAAAAAA</p>
                 </a>
@@ -76,7 +82,7 @@
           </li>
           <li class="nav-header">SISTEMAS IFSC</li>
           <li class="nav-item">
-            <a href="../calendar.html" class="nav-link">  
+            <a href="{{route('dashboard')}}" class="nav-link">  
               <i class="nav-icon fas fa-envelope"></i>
               <p>
                 Email
@@ -102,13 +108,19 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="../examples/login.html" class="nav-link">
+                    <a href="https://sigrh.ifsc.edu.br/sigrh/public/home.jsf" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Logar</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Bater Ponto</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="../examples/register.html" class="nav-link">
+                    <a href="https://sigrh.ifsc.edu.br/sigrh/frequencia/ponto_eletronico/consulta/consulta_ponto_eletronico.jsf" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Espelho Ponto</p>
                     </a>
@@ -125,13 +137,25 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="../examples/login-v2.html" class="nav-link">
+                    <a href="https://dgp.ifsc.edu.br/sigp/central/login/login.php" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Logar</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="nao tenho acesso ao manter ainda" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Manter</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://dgp.ifsc.edu.br/sigp/index.php?pg=sigp&md=" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Pessoas</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="../examples/register-v2.html" class="nav-link">
+                    <a href="https://dgp.ifsc.edu.br/sigp/index.php?pg=patrimonio&md=patrimonioconsultabenscampus" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Patrimonio</p>
                     </a>
@@ -139,7 +163,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="../examples/blank.html" class="nav-link active">
+                <a href="{{route('dashboard')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Outros</p>
                 </a>
