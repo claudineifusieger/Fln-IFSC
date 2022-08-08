@@ -2,14 +2,14 @@
 
 @section('title','Fazer Laudo')
 
-@section('page','Laudo Técnico para Desfasimento')
+@section('page','Laudo Técnico')
 
 
 
 @section('content')
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content"> 
 
       <form action="{{route('createPDF_laudotecnico')}}" method="post" enctype="multipart/form-data">
         @csrf

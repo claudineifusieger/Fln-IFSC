@@ -5,7 +5,7 @@ use App\Http\Controllers\LaudoController;
 
 
 
-Route::get('/' , function () {return view('welcome');});
+Route::get('/' , function () {return view('welcome');})->name('welcome');
 
 //Route::resource('laudo', LaudoController::class);
 
@@ -18,6 +18,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () { return view('dashboard');})->name('dashboard');
     Route::get('/laudotecnico', function () {return view('laudotecnico');})->name('laudotecnico');
+    Route::get('/laudo', function () {return view('laudo');})->name('laudo');
     Route::post('/createPDF_laudotecnico', [LaudoController::class, 'createPDF_laudotecnico'])->name('createPDF_laudotecnico');
     Route::get('/timbrado', [LaudoController::class, 'timbrado'])->name('timbrado'); 
 });
