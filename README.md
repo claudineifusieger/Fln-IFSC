@@ -28,6 +28,10 @@ php artisan migrate --seed
 
 npm install
 
+npm run dev
+
+php artisan storage link <-arumar isso....
+
 ##################################################
 
 ##Enviar projeto para o git hub
