@@ -115,7 +115,7 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Gerar Parecer</button>
+            <button type="submit" class="btn btn-primary">Gerar Laudo</button>
           </div>
           <!-- /.card-footer-->
         </div>

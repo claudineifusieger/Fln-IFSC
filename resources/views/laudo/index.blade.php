@@ -41,8 +41,8 @@
             <tr>
                 <td>{{$laudo->id}}</td>
                 <td>{{$laudo->patrimonio}}</td>
-                <td>{{$laudo->updated_at}}</td>
-                <td><a href="{{$laudo->url}}"> <div class="d-flex justify-content-center bg-info text-white">Ver</div></a></td>
+                <td>{{ date( 'd/m/Y  H:i' , strtotime($laudo->updated_at))}}</td>
+                <td><a href="{{$laudo->url}}" target="_blank"> <div class="d-flex justify-content-center bg-info text-white">Ver</div></a></td>
             </tr>
           @endforeach
         </tbody>
