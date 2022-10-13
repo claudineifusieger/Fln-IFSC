@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('laudo_tecnicos', function (Blueprint $table) {
             $table->id();
+            $table->string('patrimonio');
+            $table->string('url');
             $table->timestamps();
         });
     }

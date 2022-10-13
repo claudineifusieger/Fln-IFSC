@@ -2,82 +2,81 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\LaudoTecnico;
 use Illuminate\Http\Request;
 
 class LaudoTecnicoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $laudos = LaudoTecnico::get();
+        //dd($laudos);
+        return view('laudo.index', compact('laudos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('laudo.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        if ($request->pic1){  
+            $extencaoPic1 = $request->pic1->getClientOriginalExtension();
+            $data['pic1'] = $request->pic1->storeAs('laudos_img', $request->numeroPatrimonio.'_1_'.date('d-m-Y').'.'.$extencaoPic1);  
+        }
+        if ($request->pic2){  
+            $extencaoPic2 = $request->pic2->getClientOriginalExtension();
+            $data['pic2'] = $request->pic2->storeAs('laudos_img', $request->numeroPatrimonio.'_2_'.date('d-m-Y').'.'.$extencaoPic2);  
+        }
+        if ($request->pic3){  
+            $extencaoPic3 = $request->pic3->getClientOriginalExtension();
+            $data['pic3'] = $request->pic3->storeAs('laudos_img', $request->numeroPatrimonio.'_3_'.date('d-m-Y').'.'.$extencaoPic3);  
+        }  
+
+        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');   // ajusta a data para padrao brasileiro
+        date_default_timezone_set('America/Sao_Paulo');                           // seta o time zone 
+
+        $pdfnome = $data['numeroPatrimonio'].".pdf"; 
+        $pdfnomeArquivo = 'storage/laudos_pdf/'.$request->numeroPatrimonio.date('d-m-y').'.pdf'; 
+
+        $laudo = new LaudoTecnico;
+        $laudo->patrimonio = $data['numeroPatrimonio'];
+        $laudo->url = $pdfnomeArquivo;
+        $laudo->save();
+
+
+        view()->share('laudos_pdf', compact('data')); 
+        $pdf = PDF::loadView('laudo.show',  compact('data'))->setOptions(['defaultFont' => 'sans-serif', 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+
+        if (file_exists($pdfnomeArquivo) ){
+            return response()->file($pdfnomeArquivo);
+        }else{
+            $pdf->save($pdfnomeArquivo);
+            return $pdf->stream($pdfnome);
+        }
+
+        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\LaudoTecnico  $laudoTecnico
-     * @return \Illuminate\Http\Response
-     */
     public function show(LaudoTecnico $laudoTecnico)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\LaudoTecnico  $laudoTecnico
-     * @return \Illuminate\Http\Response
-     */
     public function edit(LaudoTecnico $laudoTecnico)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\LaudoTecnico  $laudoTecnico
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, LaudoTecnico $laudoTecnico)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\LaudoTecnico  $laudoTecnico
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(LaudoTecnico $laudoTecnico)
     {
         //

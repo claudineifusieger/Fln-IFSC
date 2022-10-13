@@ -30,7 +30,7 @@ npm install
 
 npm run dev
 
-php artisan storage link <-arumar isso....
+php artisan storage:link
 
 ##################################################
 

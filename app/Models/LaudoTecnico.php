@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class LaudoTecnico extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['patrimonio', 'url', ];
+    
 }

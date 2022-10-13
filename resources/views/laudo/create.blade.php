@@ -11,7 +11,7 @@
     <!-- Main content -->
     <section class="content"> 
 
-      <form action="{{route('createPDF_laudotecnico')}}" method="post" enctype="multipart/form-data">
+      <form action="{{route('laudo.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <!-- Default box -->
         <div class="card">
@@ -79,19 +79,19 @@
               <label class="label-title">Emcaminhamento</label>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="encaminhamento" value="01" required>
-                <label class="form-check-label" >Sem Solucao Técnica Local</label>
+                <label class="form-check-label" >Sem Solução Técnica Local</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="encaminhamento" value="02">
-                <label class="form-check-label">Com Solucao Técnica Estimada, Mediante Avalição de Custo</label>
+                <label class="form-check-label">Com Solução Técnica Estimada, Mediante Avalição de Custo</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="encaminhamento" value="03">
-                <label class="form-check-label">Com Solucao Técnica Local e Sem Custo</label>
+                <label class="form-check-label">Com Solução Técnica Local e Sem Custo</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="encaminhamento" value="04">
-                <label class="form-check-label">Com Solucao Técnica Local, Mediante Compra de Peças</label>
+                <label class="form-check-label">Com Solução Técnica Local, Mediante Compra de Peças</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="encaminhamento" value="05">
@@ -100,7 +100,7 @@
             </div>
             <div class="form-group">
               <label for="responsavelLaudo">Responsável pelo Laudo:</label>
-              <input type="text" class="form-control" required id="responsavelLaudo" name="responsavelLaudo">
+              <input type="text" class="form-control" required id="responsavelLaudo" name="responsavelLaudo" value="{{Str::title(Auth::user()->name)}}">
             </div>
             <div class="form-group">
               <label>Observações:</label>

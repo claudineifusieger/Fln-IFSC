@@ -7,7 +7,7 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" data-widget="logout" data-slide="true" href="#" role="button" onClick="document.getElementById('formLogout').submit();">
-          <span class="mr-3">{{ Auth::user()->name }}</span> 
+          <span class="mr-3">{{Str::title(Auth::user()->name)}}</span> 
           <i class="fas fa-sign-out-alt"></i>
         </a>
         <form method="POST" action="{{ route('logout') }}" id="formLogout">

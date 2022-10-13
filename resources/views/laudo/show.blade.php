@@ -22,7 +22,7 @@
       <h2> <img src="{{asset('AdminLTE/dist/img/laudo.png')}}" width="3%"> Laudo Técnico</h2>
       <hr style="border-top: 1px solid black;">
       <table>
-        <td width="73%">
+        <td style="width: 500px;">
           <p><b>Responsavel pelo Patrimônio: </b></p>
           <p><b>Nome:    </b> {{$data['name']}}   (Siape: {{$data['matriculaSiape']}}) </p>
           <p><b>Lotação: </b> {{$data['lotacao']}} </p>
@@ -53,24 +53,24 @@
           <hr style="border-top: 1px solid black;">
           <p style="margin: 0px;  padding-top: 5px"><b>Emcaminhamento: </b> </p>
           @if ( $data['encaminhamento'] === "01" ) 
-            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" checked=""> Sem Solucao Técnica Local </p>
+            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" checked=""> Sem Solução Técnica Local </p>
           @else
-            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" > Sem Solucao Técnica Local </p>
+            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" > Sem Solução Técnica Local </p>
           @endif 
           @if ( $data['encaminhamento'] === "02" ) 
-            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" checked="">  Com Solucao Técnica Estimada, Mediante Avalição de Custo </p>
+            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" checked="">  Com Solução Técnica Estimada, Mediante Avalição de Custo </p>
           @else
-            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" >  Com Solucao Técnica Estimada, Mediante Avalição de Custo </p>
+            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" >  Com Solução Técnica Estimada, Mediante Avalição de Custo </p>
           @endif  
           @if ( $data['encaminhamento'] === "03" ) 
-            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" checked=""> Com Solucao Técnica Local e Sem Custo </p>
+            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" checked=""> Com Solução Técnica Local e Sem Custo </p>
           @else
-            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" > Com Solucao Técnica Local e Sem Custo </p>
+            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" > Com Solução Técnica Local e Sem Custo </p>
           @endif 
           @if ( $data['encaminhamento'] === "04" ) 
-            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" checked=""> Com Solucao Técnica Local, Mediante Compra de Peças </p>
+            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" checked=""> Com Solução Técnica Local, Mediante Compra de Peças </p>
           @else
-            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" > Com Solucao Técnica Local, Mediante Compra de Peças </p>
+            <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" > Com Solução Técnica Local, Mediante Compra de Peças </p>
           @endif  
           @if ( $data['encaminhamento'] === "05" ) 
             <p style="margin: 0px; padding: 0px;"> <input style="vertical-align: bottom;" type="checkbox" checked=""> Não se Aplica </p>
@@ -81,13 +81,13 @@
         <td width="26%"> 
           <div>
             @isset ( $data['pic1'] ) 
-            <img src="{{url("storage/{$data['pic1']}")}}" width="85%" style="border: 3px solid black;margin: 3px;">
+            <img src="{{url("storage/{$data['pic1']}")}}" height="150" width="100%" style="border: 3px solid black; margin-bottom: 5px;">
             @endisset
             @isset ( $data['pic2'] ) 
-            <img src="{{url("storage/{$data['pic2']}")}}" width="85%" style="border: 3px solid black;margin: 3px;">
+            <img src="{{url("storage/{$data['pic2']}")}}" height="150" width="100%" style="border: 3px solid black; margin-bottom: 5px;">
             @endisset
             @isset ( $data['pic3'] ) 
-            <img src="{{url("storage/{$data['pic3']}")}}" width="85%" style="border: 3px solid black;margin: 3px;">
+            <img src="{{url("storage/{$data['pic3']}")}}" height="150" width="100%" style="border: 3px solid black; margin-bottom: 5px;">
             @endisset
           </div>
         </td>
