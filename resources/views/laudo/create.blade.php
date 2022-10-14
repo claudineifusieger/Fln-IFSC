@@ -11,7 +11,7 @@
     <!-- Main content -->
     <section class="content"> 
 
-      <form action="{{route('laudo.store')}}" method="post" enctype="multipart/form-data">
+      <form action="{{route('laudo.store')}}" method="post" enctype="multipart/form-data" target="_blank">
         @csrf
         <!-- Default box -->
         <div class="card">

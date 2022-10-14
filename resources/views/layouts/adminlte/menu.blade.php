@@ -62,14 +62,37 @@
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Level 2</p>
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                    Incorporação
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('incorporacao.create')}}" class="nav-link">
+                      <i class=""></i>
+                      <p>Nova Incorporação</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('incorporacao.index')}}" class="nav-link">
+                      <i class=""></i>
+                      <p>Ultimas Incorporações</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class=""></i>
+                      <p>xxxxx</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>L2 </p>
+                  <p>Responsável por Laboratório </p>
                 </a>
               </li>
             </ul>

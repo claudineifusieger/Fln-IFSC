@@ -4,14 +4,25 @@ namespace App\Http\Controllers;
 
 use PDF;
 use App\Models\LaudoTecnico;
+use App\Models\IncorporacaoBens;
 use Illuminate\Http\Request;
 
 class LaudoTecnicoController extends Controller
 {
+    protected $laudos;
+    protected $incorparacoes;
+
+    public function __construct(LaudoTecnico $laudos,IncorporacaoBens $incorparacoes)
+    {
+        $this->laudos = $laudos;
+        $this->incorparacoes = $incorparacoes;
+        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');   // ajusta a data para padrao brasileiro
+        date_default_timezone_set('America/Sao_Paulo');                           // seta o time zone 
+    }
 
     public function index()
     {
-        $laudos = LaudoTecnico::get();
+        $laudos = $this->laudos->get();
         //dd($laudos);
         return view('laudo.index', compact('laudos'));
     }
@@ -35,10 +46,7 @@ class LaudoTecnicoController extends Controller
         if ($request->pic3){  
             $extencaoPic3 = $request->pic3->getClientOriginalExtension();
             $data['pic3'] = $request->pic3->storeAs('laudos_img', $request->numeroPatrimonio.'_3_'.date('d-m-Y').'.'.$extencaoPic3);  
-        }  
-
-        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');   // ajusta a data para padrao brasileiro
-        date_default_timezone_set('America/Sao_Paulo');                           // seta o time zone 
+        }                            // seta o time zone 
 
         $pdfnome = $data['numeroPatrimonio'].".pdf"; 
         $pdfnomeArquivo = 'storage/laudos_pdf/'.$request->numeroPatrimonio.date('d-m-y').'.pdf'; 

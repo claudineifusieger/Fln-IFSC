@@ -3,11 +3,24 @@
 namespace App\Http\Controllers; 
 
 use Illuminate\Http\Request;
+use App\Models\LaudoTecnico;
+use App\Models\IncorporacaoBens;
 
 use PDF; 
+setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');   // ajusta a data para padrao brasileiro
 
 class LaudoController extends Controller
 {
+    protected $laudos;
+    protected $incorparacoes;
+
+    public function __construct(LaudoTecnico $laudos,IncorporacaoBens $incorparacoes)
+    {
+        $this->laudos = $laudos;
+        $this->incorparacoes = $incorparacoes;
+        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');   // ajusta a data para padrao brasileiro
+    }
+
     public function createPDF_laudotecnico(Request $request) 
     {
         $data = $request->all();
@@ -24,11 +37,6 @@ class LaudoController extends Controller
             $data['pic3'] = $request->pic3->storeAs('laudotecnicoIMG', $request->numeroPatrimonio.'_3_'.date('d-m-Y').'.'.$extencaoPic3);  
         }  
 
-
-        //dd($data);
-
-        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');   // ajusta a data para padrao brasileiro
-        date_default_timezone_set('America/Sao_Paulo');                           // seta o time zone 
 
         $pdfnome = $data['numeroPatrimonio'].".pdf"; 
         $pdfnomeArquivo = 'storage/laudotecnicoPDF/'.$request->numeroPatrimonio.'.pdf'; 
@@ -48,12 +56,21 @@ class LaudoController extends Controller
     }
     public function timbrado(Request $request)
     {        
-        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');   // ajusta a data para padrao brasileiro
-        date_default_timezone_set('America/Sao_Paulo');                           // seta o time zone 
+        
+
 
         view()->share('timbrado'); 
-        $pdf = PDF::loadView('timbrado')->setOptions(['defaultFont' => 'sans-serif', 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        $pdf = PDF::loadView('timbrado')->setOptions([ 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        //return $pdf->stream('nome-do-arquivo-pdf.pdf',compact('pdf'));
+
+        view()->share('timbrado',compact('pdf')); 
+        $pdf = PDF::loadView('timbrado',compact('pdf'))->setOptions([ 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
         return $pdf->stream('nome-do-arquivo-pdf.pdf');
+
+        
+
+
+
     }
     public function laudo(Request $request)
     {

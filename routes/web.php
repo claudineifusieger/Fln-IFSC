@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LaudoController; 
 use App\Http\Controllers\LaudoTecnicoController; 
+use App\Http\Controllers\IncorporacaoBensController; 
 
 
 
@@ -11,7 +12,7 @@ Route::get('/' , function () {return view('welcome');})->name('welcome');
 //Route::resource('laudo', LaudoController::class);
 
 
-Route::get('/6', function () {return view('parecer.formresp');})->name('parecer.formresp');
+Route::get('/1', function () {return view('parecer.formresp');})->name('parecer.formresp');
 Route::get('/7', function () {return view('parecer.formresp2');})->name('parecer.formresp2');
 
 //Rotas comuns
@@ -19,7 +20,7 @@ Route::middleware([
     'auth:sanctum', config('jetstream.auth_session'),'verified'
 ])->group(function () {
     Route::get('/dashboard', function () { return view('dashboard');})->name('dashboard');
-    Route::get('/timbrado', [LaudoController::class, 'timbrado'])->name('timbrado'); 
+    Route::get('/t', [LaudoController::class, 'timbrado'])->name('t'); 
 });
 
 // Rotas para laudos tecnicos
@@ -30,6 +31,16 @@ Route::middleware([
     Route::get('/laudo/create', [LaudoTecnicoController::class, 'create'])->name('laudo.create');
     Route::get('/laudo/{id}', [LaudoTecnicoController::class, 'show'] )->name('laudo.show');
     Route::post('/laudo/', [LaudoTecnicoController::class, 'store'] )->name('laudo.store');
+});
+
+// Rotas para Incorpoação de bem
+Route::middleware([
+    'auth:sanctum', config('jetstream.auth_session'),'verified'
+])->group(function () {
+    Route::get('/incorporacao', [IncorporacaoBensController::class, 'index'] )->name('incorporacao.index');
+    Route::get('/incorporacao/create', [IncorporacaoBensController::class, 'create'])->name('incorporacao.create');
+    Route::get('/incorporacao/{id}', [IncorporacaoBensController::class, 'show'] )->name('incorporacao.show');
+    Route::post('/incorporacao/', [IncorporacaoBensController::class, 'store'] )->name('incorporacao.store');
 });
 
 

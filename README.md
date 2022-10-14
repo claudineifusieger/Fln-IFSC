@@ -32,6 +32,8 @@ npm run dev
 
 php artisan storage:link
 
+php artisan vendor:publish
+
 ##################################################
 
 ##Enviar projeto para o git hub
