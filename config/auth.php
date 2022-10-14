@@ -69,6 +69,7 @@ return [
                 'sync_attributes' => [
                     'name' => 'displayname',
                     'username' => 'uid',
+                    'uidnumber'=> 'uidnumber',
                 ],
             ],
         ],
