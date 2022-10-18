@@ -33,9 +33,9 @@
 
         @php
           //var_dump($_SERVER);
-          echo '<pre>';
-          print_r($_SERVER);
-          echo '<pre>';
+          //echo '<pre>';
+          //print_r($_SERVER);
+          //echo '<pre>';
         @endphp
             
       </main>
