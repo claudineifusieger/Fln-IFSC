@@ -19,7 +19,6 @@ class LaudoTecnicoController extends Controller
         setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');   // ajusta a data para padrao brasileiro
         date_default_timezone_set('America/Sao_Paulo');                           // seta o time zone 
     }
-
     public function index()
     {
         $laudos = $this->laudos->get();
@@ -27,9 +26,48 @@ class LaudoTecnicoController extends Controller
         return view('laudo.index', compact('laudos'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        return view('laudo.create');
+        $bem= array();
+        if($request['numeroPatrimonio']){
+            $data = $request->all();                       //dd($data);
+            $patrimonio = $data['numeroPatrimonio'];       //dd($patrimonio);  
+            if (($open = fopen(storage_path() . "/app/public/SapBensGrid.csv", "r")) !== FALSE) {
+                while (($data = fgetcsv($open, 1000, ",")) !== FALSE) { 
+                    if($data[3]==$patrimonio){                 //dd($data);
+                        $bem['numeroPatrimonio'] = $data[3];
+                        $bem['nome'] = $data[8];
+                        $bem['tipoEquipamento'] = 'Código SIAFI: '.$data[7].' |  Descrição: '.$data[6];
+                        $bem['marca'] = "pegar no dgp";
+                        $bem['modelo'] = "pegar no dgp";
+                        $bem['local'] = $data[2];
+                        $bem['descricao'] = $data[10];
+                        $id = $data[0];
+                    }
+                }
+                fclose($open);
+            }
+            $ip = "172.16.0.10";
+            $ds = ldap_connect($ip);
+            $r = ldap_bind($ds);
+            $filter = "(displayname=".$bem['nome'].")";
+            $cn = ldap_search($ds, "ou=Florianopolis,ou=Usuarios,dc=cefetsc,dc=edu,dc=br", $filter);
+            $info = ldap_get_entries($ds, $cn);
+            for ($i=0; $i<$info["count"]; $i++)      {
+                $bem['matriculaSiape'] = $info[$i]["o"]['0'];
+                $u = explode(",",($info[$i]["dn"]));          
+                $unidade = explode("=",$u[1]);
+                $bem['unidade'] =$unidade[1];
+            }
+            $bem['link']= 'https://dgp.ifsc.edu.br/sigp/index.php?pg=patrimonio&md=patrimonioconsultabenscampus&act=view&id='.$id;
+        //dd($bem);
+        return view('laudo.create',compact('bem'));
+        }else{
+            $bem['numeroPatrimonio'] = ''; $bem['nome'] = ''; $bem['tipoEquipamento'] = ''; $bem['marca'] = "pegar no dgp";
+            $bem['modelo'] = "pegar no dgp"; $bem['local'] = '';  $bem['descricao'] = '';$bem['matriculaSiape'] = ''; $bem['unidade'] ='';
+            $bem['link']= 'https://dgp.ifsc.edu.br/sigp/index.php?pg=patrimonio&md=patrimonioconsultabenscampus';
+            return view('laudo.create',compact('bem'));
+        }
     }
 
     public function store(Request $request)

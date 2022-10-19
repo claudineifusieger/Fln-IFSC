@@ -50,10 +50,6 @@
 
       <main>
 
-            <div>
-              <p style="text-decoration:overline;margin-bottom: 35px;font-size: 12px;">Responsavel Tecnico Pelo Laudo<b></b></p>
-              <p style="text-align: right;font-size: 12px;"> Florianópolis, <?php echo strftime('%d', strtotime('today')) ." de ". ucwords(strftime('%B', strtotime('today'))) ." de ". strftime('%Y', strtotime('today')); ?></p>
-            </div>
             <h1>Hello World</h1>
             <h1>Hello World</h1>
             <h1>Hello World</h1>

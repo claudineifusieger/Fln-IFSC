@@ -9,7 +9,8 @@ use App\Http\Controllers\IncorporacaoBensController;
 
 Route::get('/' , function () {return view('welcome');})->name('welcome');  // tela de login
 Route::get('/t', [LaudoController::class, 'timbrado'])->name('t'); 
-Route::get('/ip' , function () {return view('ip');})->name('ip');  // tela de login
+Route::get('/ip' , function () {return view('ip');})->name('ip');  // ver ip é hostname do cliente
+Route::get('/csv', [LaudoController::class, 'csv'])->name('csv'); 
 
 //Rotas comuns
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])->group(function () {
