@@ -25,33 +25,34 @@ class ResponsabilidaLabsController extends Controller
 
     public function create()
     {
-        //
+        return view('resplab.create');
     }
 
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->all();  
         $pdfnome = $data['matricula'].".pdf"; 
         $pdfnomeArquivo = 'storage/resplabs_pdf/'.$request->matricula.date('d-m-y').'.pdf'; 
 
         $resp = new ResponsabilidaLabs;
         $resp->matricula = $data['matricula'];
-        $resp->nome = 'aleatorio por enquanto';
+        $resp->nome = $data['nome'];
         $resp->url = $pdfnomeArquivo;
         $resp->save();
+
+        $resp->soft = $data['soft'];
+        $resp->labs = $data['labs'];  //dd($data);
 
 
         view()->share('resplabs_pdf', compact('data')); 
         $pdf = PDF::loadView('resplab.show',  compact('data'))->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
 
         if (file_exists($pdfnomeArquivo) ){
-            return response()->file($pdfnomeArquivo);
+            echo ('termo ja feito hoje');
         }else{
             $pdf->save($pdfnomeArquivo);
             return $pdf->stream($pdfnome);
         }
-
-        
     }
 
     public function show(ResponsabilidaLabs $responsabilidaLabs)

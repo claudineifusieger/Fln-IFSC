@@ -8,17 +8,15 @@ use App\Http\Controllers\ResponsabilidaLabsController;
 
 
 
-Route::get('/' , [LaudoController::class, 'entrar'])->name('entrar');  // tela de login
-Route::get('/t', [LaudoController::class, 'timbrado'])->name('t'); 
-Route::get('/ip' , function () {return view('ip');})->name('ip');  // ver ip é hostname do cliente
-Route::get('/csv', [LaudoController::class, 'csv'])->name('csv'); 
-Route::get('/r', [ResponsabilidaLabsController::class, 'show'] )->name('resplab.show');
+// rotas usandas em testes deven ser apagas apos os mesmos
+Route::get('/t', [LaudoController::class, 'timbrado'])->name('t');
 
 //Rotas comuns
-Route::get('/' , [LaudoController::class, 'entrar'])->name('entrar');  // tela de login
-Route::get('/ip' , [LaudoController::class, 'ip'])->name('ip'); // ver ip é hostname do cliente
+Route::get('/' , [LaudoController::class, 'entrar'])->name('entrar');                                    // tela de login
+Route::get('/ip' , [LaudoController::class, 'ip'])->name('ip');                                          // ver ip é hostname do cliente
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])->group(function () {
-    Route::get('/dashboard', function () { return view('dashboard');})->name('dashboard');
+Route::get('/dashboard', function () { return view('dashboard');})->name('dashboard');
+Route::get('/timbrado', [LaudoController::class, 'timbrado'])->name('tinbrado');
 });
 
 // Rotas para laudos tecnicos

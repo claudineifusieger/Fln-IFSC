@@ -115,7 +115,7 @@
               <li class="nav-item">
             <a href="{{route('resplab.index')}}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
-              <p>Dashboard</p>
+              <p>Resp por Lab de Info</p>
             </a>
           </li>
             </ul>

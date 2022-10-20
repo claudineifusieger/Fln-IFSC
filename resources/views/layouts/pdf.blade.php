@@ -30,8 +30,6 @@
           right: 0cm;
           height: 2cm;
       }
-      .pagenum:before {content: counter(page);}
-      footer .pagenum:before {content: counter(page);}
     </style>
     </head>
     <body>
@@ -39,8 +37,7 @@
         <img src="{{asset('AdminLTE/dist/img/cabecalho.jpg')}}" width="100%">
       </header>
 
-      <footer>          
-        <div> <span class="pagenum" style="float: right; margin-right: 50px; font-size: 10;"></span>  </div></br>
+      <footer>  
         <div style="font-size: 13px; text-align: center;" >
           <span style="color: green; font-weight: bold;">Instituto Federal de Santa Catarina – Câmpus Florianópolis </span></br>
           Av. Mauro Ramos, 950 | Centro | Florianópolis /SC | CEP: 88.020-300</br>

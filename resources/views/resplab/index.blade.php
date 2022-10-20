@@ -11,30 +11,6 @@
     <!-- Main content -->
     <section class="content">
 
-        <!-- card pre preencher -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title"> Iniciar Novo Termo de Responsabilidade por Laboratório </h3>
-            <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse"><i class="fas fa-minus"></i></button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove"><i class="fas fa-times"></i></button>
-            </div>
-            </div>
-            <div class="card-body">
-                <form action="{{route('resplab.store')}}" method="post" enctype="multipart/form-data">
-                @csrf   
-                <div class="form-group" width="25%">
-                    <label for="matricula">Numero da Matricula do Responsável:</label>
-                    <input type="text" class="form-control" required id="matricula" name="matricula">
-                </div>                
-                <button type="submit" class="btn btn-primary">Iniciar Documento</button>
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-            </div>
-            <!-- /.card-footer-->
-        </div>
-        <!-- /.card -->
 
               <!-- Default box -->
         <div class="card">
