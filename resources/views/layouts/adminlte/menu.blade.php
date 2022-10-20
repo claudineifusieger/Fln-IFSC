@@ -41,12 +41,6 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class=""></i>
-                      <p>xxxxxxx</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
                     <a href="{{route('laudo.create')}}" class="nav-link">
                       <i class=""></i>
                       <p>Novo Laudo</p>
@@ -91,10 +85,39 @@
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Responsável por Laboratório </p>
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                    fffffffffffffffff
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class=""></i>
+                      <p>bbbbbb</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class=""></i>
+                      <p>aaaaaa</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class=""></i>
+                      <p>xxxxx</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
+              <li class="nav-item">
+            <a href="{{route('resplab.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
             </ul>
           </li>
           <li class="nav-item">

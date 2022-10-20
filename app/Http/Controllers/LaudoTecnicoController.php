@@ -6,6 +6,7 @@ use PDF;
 use App\Models\LaudoTecnico;
 use App\Models\IncorporacaoBens;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LaudoTecnicoController extends Controller
 {
@@ -99,12 +100,14 @@ class LaudoTecnicoController extends Controller
         $pdf = PDF::loadView('laudo.show',  compact('data'))->setOptions(['defaultFont' => 'sans-serif', 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
 
         if (file_exists($pdfnomeArquivo) ){
-            return response()->file($pdfnomeArquivo);
+            echo ('criar view para avisar que laudo ja foi feito hoje');
         }else{
             $pdf->save($pdfnomeArquivo);
+            if ($request->pic3) { Storage::delete($data['pic3']);  }
+            if ($request->pic2) { Storage::delete($data['pic2']);  }
+            if ($request->pic1) { Storage::delete($data['pic1']);  }
             return $pdf->stream($pdfnome);
         }
-
         
     }
 

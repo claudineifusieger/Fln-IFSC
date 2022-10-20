@@ -22,7 +22,7 @@ php artisan key:generate
 
 ##Em seguida você deve configurar o arquivo .env e rodar as migrations com:
 
-php artisan migrate --seed
+php artisan migrate --seed  ou php artisan migrate:refresh
 
 ##Em relação ao npm, isso varia de projeto para projeto, mas provavelmente você também vai precisar rodar os seguintes comandos:
 

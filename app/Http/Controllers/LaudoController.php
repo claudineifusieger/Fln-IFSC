@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\LaudoTecnico;
 use App\Models\IncorporacaoBens;
 use PDF; 
+use Auth;
 
 class LaudoController extends Controller
 {
@@ -17,6 +18,20 @@ class LaudoController extends Controller
         $this->laudos = $laudos;
         $this->incorparacoes = $incorparacoes;
         setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');   // ajusta a data para padrao brasileiro
+    }
+
+    public function entrar()
+    {        
+        if (Auth::check()) {
+            return view('dashboard');
+        }else{
+            return view('welcome');
+        }
+    }
+
+    public function ip()
+    {      
+            return view('ip');
     }
 
     public function timbrado(Request $request)

@@ -4,15 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LaudoController; 
 use App\Http\Controllers\LaudoTecnicoController; 
 use App\Http\Controllers\IncorporacaoBensController; 
+use App\Http\Controllers\ResponsabilidaLabsController; 
 
 
 
-Route::get('/' , function () {return view('welcome');})->name('welcome');  // tela de login
+Route::get('/' , [LaudoController::class, 'entrar'])->name('entrar');  // tela de login
 Route::get('/t', [LaudoController::class, 'timbrado'])->name('t'); 
 Route::get('/ip' , function () {return view('ip');})->name('ip');  // ver ip é hostname do cliente
 Route::get('/csv', [LaudoController::class, 'csv'])->name('csv'); 
+Route::get('/r', [ResponsabilidaLabsController::class, 'show'] )->name('resplab.show');
 
 //Rotas comuns
+Route::get('/' , [LaudoController::class, 'entrar'])->name('entrar');  // tela de login
+Route::get('/ip' , [LaudoController::class, 'ip'])->name('ip'); // ver ip é hostname do cliente
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])->group(function () {
     Route::get('/dashboard', function () { return view('dashboard');})->name('dashboard');
 });
@@ -31,6 +35,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
     Route::get('/incorporacao/create', [IncorporacaoBensController::class, 'create'])->name('incorporacao.create');
     Route::get('/incorporacao/{id}', [IncorporacaoBensController::class, 'show'] )->name('incorporacao.show');
     Route::post('/incorporacao/', [IncorporacaoBensController::class, 'store'] )->name('incorporacao.store');
+});
+
+// Rotas para responsabilidade de Laboratorio
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])->group(function () {
+    Route::get('/resplab', [ResponsabilidaLabsController::class, 'index'] )->name('resplab.index');
+    Route::get('/resplab/create', [ResponsabilidaLabsController::class, 'create'])->name('resplab.create');
+    Route::get('/resplab/{id}', [ResponsabilidaLabsController::class, 'show'] )->name('resplab.show');
+    Route::post('/resplab/', [ResponsabilidaLabsController::class, 'store'] )->name('resplab.store');
 });
 
 
