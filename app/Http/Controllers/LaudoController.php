@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\LaudoTecnico;
+use App\Models\User;
 use App\Models\IncorporacaoBens;
+use Illuminate\Support\Facades\Gate;
 use PDF; 
 use Auth;
 
@@ -12,8 +14,9 @@ class LaudoController extends Controller
 {
     protected $laudos;
     protected $incorparacoes;
+    protected $user;
 
-    public function __construct(LaudoTecnico $laudos,IncorporacaoBens $incorparacoes)
+    public function __construct(LaudoTecnico $laudos,IncorporacaoBens $incorparacoes,User $user)
     {
         $this->laudos = $laudos;
         $this->incorparacoes = $incorparacoes;
@@ -36,10 +39,27 @@ class LaudoController extends Controller
 
     public function timbrado(Request $request)
     {        
+        if (Gate::allows('admin')) {
+            view()->share('timbrado'); 
+            $pdf = PDF::loadView('timbrado')->setOptions([ 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+            return $pdf->stream('nome-do-arquivo-pdf.pdf',compact('pdf'));
+        }else{
+            echo 'não é admin' ;
+        }
         
-        view()->share('timbrado'); 
-        $pdf = PDF::loadView('timbrado')->setOptions([ 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
-        return $pdf->stream('nome-do-arquivo-pdf.pdf',compact('pdf'));
+
+    }
+
+    public function timbrado2(Request $request)
+    {        
+        if (Gate::allows('tifpolis')) {
+            view()->share('timbrado'); 
+            $pdf = PDF::loadView('timbrado')->setOptions([ 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+            return $pdf->stream('nome-do-arquivo-pdf.pdf',compact('pdf'));
+        }else{
+            echo 'não é da ti de Florianopolis' ;
+        }
+        
 
     }
 
@@ -67,7 +87,8 @@ class LaudoController extends Controller
         $r = ldap_bind($ds);
         $filter = "(displayname=".$name.")";
         $cn = ldap_search($ds, "ou=Florianopolis,ou=Usuarios,dc=cefetsc,dc=edu,dc=br", $filter);
-        $info = ldap_get_entries($ds, $cn);
+        ldap_close($ds);
+        $info = ldap_get_entries($ds, $cn);    //dd($info);
         for ($i=0; $i<$info["count"]; $i++)      {
             $matriculaSiape= $info[$i]["o"]['0'];
             $nome =$info[$i]["displayname"]['0'];
@@ -80,6 +101,29 @@ echo "<pre>";
 print_r($info);
 echo "</pre>"; echo $matriculaSiape;
     }
+
+
+
+
+
+    public function test()
+    {        
+        $ip = "172.16.0.10";
+        $ds = ldap_connect($ip);
+        $ldaptree   = "cn=Domain Admins,ou=Grupos,dc=cefetsc,dc=edu,dc=br";  
+        $result = ldap_search($ds, $ldaptree,  "(&(objectClass=posixGroup))"  );
+        ldap_close($ds);
+        $data = ldap_get_entries($ds, $result);
+        $membros = $data[0]['memberuid'];
+        if(in_array(Auth::user()->username, $membros)){
+           echo 'existe no array.';
+        } else{
+           echo 'nao existe no array';
+        }
+    }
+
+
+    
 
     
 }

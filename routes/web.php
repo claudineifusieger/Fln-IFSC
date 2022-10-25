@@ -9,7 +9,9 @@ use App\Http\Controllers\ResponsabilidaLabsController;
 
 
 // rotas usandas em testes deven ser apagas apos os mesmos
-Route::get('/t', [LaudoController::class, 'timbrado'])->name('t');
+Route::get('/t', [LaudoController::class, 'test'])->name('t');
+Route::get('/csv', [LaudoController::class, 'csv'])->name('csv');
+Route::get('/timbrado2', [LaudoController::class, 'timbrado2'])->name('tinbrado2');
 
 //Rotas comuns
 Route::get('/' , [LaudoController::class, 'entrar'])->name('entrar');                                    // tela de login
@@ -17,6 +19,7 @@ Route::get('/ip' , [LaudoController::class, 'ip'])->name('ip');                 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])->group(function () {
 Route::get('/dashboard', function () { return view('dashboard');})->name('dashboard');
 Route::get('/timbrado', [LaudoController::class, 'timbrado'])->name('tinbrado');
+Route::get('/pdf/{id}', [LaudoTecnicoController::class, 'pdf'] )->name('pdf');
 });
 
 // Rotas para laudos tecnicos
@@ -25,6 +28,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
     Route::get('/laudo/create', [LaudoTecnicoController::class, 'create'])->name('laudo.create');
     Route::get('/laudo/{id}', [LaudoTecnicoController::class, 'show'] )->name('laudo.show');
     Route::post('/laudo/', [LaudoTecnicoController::class, 'store'] )->name('laudo.store');
+    Route::get('/laudo/{id}/edit', [LaudoTecnicoController::class, 'edit'] )->name('laudo.edit');
+    Route::put('/laudo/{id}', [LaudoTecnicoController::class, 'update'] )->name('laudo.update');
+    Route::delete('/laudo/{id}', [LaudoTecnicoController::class, 'destroy'] )->name('laudo.destroy');
+    Route::delete('/laudo/{id}', [LaudoTecnicoController::class, 'destroy'] )->name('laudo.destroy');
 });
 
 // Rotas para Incorpoação de bem

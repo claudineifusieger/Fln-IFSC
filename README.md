@@ -65,3 +65,7 @@ git push origin master
 ##Se der erro no envio tente isso
 
 git push -f origin master
+
+
+tualizar colunas da tabela 
+php artisan make:migration add_image_table_users --table=users

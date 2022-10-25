@@ -54,6 +54,7 @@ class LaudoTecnicoController extends Controller
             $filter = "(displayname=".$bem['nome'].")";
             $cn = ldap_search($ds, "ou=Florianopolis,ou=Usuarios,dc=cefetsc,dc=edu,dc=br", $filter);
             $info = ldap_get_entries($ds, $cn);
+            ldap_close($ds);
             for ($i=0; $i<$info["count"]; $i++)      {
                 $bem['matriculaSiape'] = $info[$i]["o"]['0'];
                 $u = explode(",",($info[$i]["dn"]));          
@@ -116,18 +117,41 @@ class LaudoTecnicoController extends Controller
         //
     }
 
-    public function edit(LaudoTecnico $laudoTecnico)
+    public function edit($id)
     {
-        //
+        $laudo = LaudoTecnico::find($id);      //dd($laudo);
+
+        // verifica se consulta retorna algo
+        if (!$laudo) { return redirect()->back(); }
+
+        return view('laudo.edit', compact('laudo'));
     }
 
-    public function update(Request $request, LaudoTecnico $laudoTecnico)
+    public function update(Request $request, $id)
     {
-        //
+        
+        $laudo = LaudoTecnico::find($id);      //dd($laudo);
+
+        // verifica se consulta retorna algo
+        if (!$laudo) { return redirect()->back(); }
+
+        $data = $request->all();  
+        $pdf = explode("/",($data["url"]));    //dd($pdf);
+
+        
+        if ($request->pdf){ 
+            Storage::delete('laudos_pdf/'.$pdf[2]); 
+            $data['pdf'] = $request->pdf->storeAs('laudos_pdf', $pdf[2]);  
+        }
+        $laudos = $this->laudos->get();
+        //return view('laudo.index', compact('laudos'));
+        return redirect()->route('laudo.index', ['laudos'=>$laudos]);
     }
 
     public function destroy(LaudoTecnico $laudoTecnico)
     {
         //
     }
+
+    
 }

@@ -53,7 +53,7 @@
                                 <th>ID</th>
                                 <th>Patrimonio</th>
                                 <th>Data Hora</th>
-                                <th>Vizualizar</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,7 +62,13 @@
                                 <td>{{$laudo->id}}</td>
                                 <td>{{$laudo->patrimonio}}</td>
                                 <td>{{ date( 'd/m/Y  H:i' , strtotime($laudo->updated_at))}}</td>
-                                <td><a href="{{$laudo->url}}" target="_blank"> <div class="d-flex justify-content-center bg-info text-white">Ver</div></a></td>
+                                <td>
+                                <a href="{{$laudo->url}}" target="_blank"><button type="button" class="btn btn-info">Vizualizar</button></a>
+                                @can('admin') 
+                                    <a href="{{route('laudo.edit',$laudo->id)}}" ><button type="button" class="btn btn-warning">Alterar PDF</button></a>
+                                    <a href="#" ><button type="button" class="btn btn-danger">Deletar</button></a>
+                                @endcan
+                                </td>
                             </tr>
                           @endforeach
                         </tbody>
@@ -71,7 +77,7 @@
                                 <th>ID</th>
                                 <th>Patrimonio</th>
                                 <th>Data Hora</th>
-                                <th>Vizualizar</th>
+                                <th></th>
                             </tr>
                         </tfoot>
                     </table>              
